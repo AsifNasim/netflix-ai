@@ -1,11 +1,24 @@
+import Browse from "./components/Browse";
+import Login from "./components/Login";
 
-import './App.css';
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+
+
 
 function App() {
+
+  const appRouter = createBrowserRouter([
+    {
+      path: "/",
+      element: <Login />
+    },
+    {
+      path: "/browse",
+      element: <Browse />
+    }
+  ])
   return (
-    <div className="flex justify-center m-10 text-3xl font-bold underline">
-      <h2>Salaam!</h2>
-    </div>
+    <RouterProvider router={appRouter}/>
   );
 }
 
