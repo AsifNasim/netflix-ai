@@ -70,7 +70,7 @@ const Login = () => {
           <p className="text-customGrey text-sm">
             This page is protected by Google reCAPTCHA to ensure you're not a
             bot.{" "}
-            <a href="#" className="text-blue-500 hover:underline">
+            <a href="/" className="text-blue-500 hover:underline">
               Learn more
             </a>
           </p>
@@ -80,11 +80,11 @@ const Login = () => {
           <p className="text-customGrey text-sm">
             The information collected by Google reCAPTCHA is subject to the
             Google{" "}
-            <a href="#" className="text-blue-500 hover:underline">
+            <a href="/" className="text-blue-500 hover:underline">
               Privacy Policy
             </a>{" "}
             and{" "}
-            <a href="#" className="text-blue-500 hover:underline">
+            <a href="/" className="text-blue-500 hover:underline">
               Terms of Service
             </a>
             , and is used for providing, maintaining, and improving the
@@ -94,7 +94,7 @@ const Login = () => {
 
         {isSignInForm && (
           <div className="mt-4">
-            <a href="#" className="text-customGrey text-sm hover:underline">
+            <a href="/" className="text-customGrey text-sm hover:underline">
               Forgot password?
             </a>
           </div>
@@ -110,7 +110,7 @@ const Login = () => {
         <div className="mt-4">
           <p className="text-customGrey text-sm">
             Need help? Visit our{" "}
-            <a href="#" className="text-blue-500 hover:underline">
+            <a href="/" className="text-blue-500 hover:underline">
               Help Center
             </a>
           </p>
