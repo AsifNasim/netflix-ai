@@ -19,8 +19,16 @@ const Login = () => {
         <label className="text-white block mx-2 my-4 text-lg sm:text-xl">
           {isSignInForm ? 'Sign In' : 'Sign Up'}
         </label>
+        {!isSignInForm && 
         <input
           type="text"
+          placeholder="Full Name"
+          className="px-3 py-2 m-2 bg-gray-700 border border-black rounded-md w-full"
+        />
+
+        }
+        <input
+          type="email"
           placeholder="Email Address"
           className="px-3 py-2 m-2 bg-gray-700 border border-black rounded-md w-full"
         />
@@ -33,7 +41,7 @@ const Login = () => {
         {isSignInForm ? 'Sign In' : 'Sign Up'}
         </button>
 
-        <p className=" px-2">
+        <p className="px-2">
 
           {isSignInForm ? 
           <Link onClick={handleToggle} className="text-customGrey  ml-2" to="/">
