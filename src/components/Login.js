@@ -1,9 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Header from "./Header";
 import { Link } from "react-router-dom";
+import { validateData } from '../utils/validate'
+/**
+ * Represents the login component.
+ * @component
+ */
+/**
+ * Represents the login component.
+ * @returns {JSX.Element} The login component JSX.
+ */
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
+  const [errorMessage , setErrorMessage] = useState(null);
 
+  const userName = useRef("");
+  const email = useRef(null);
+  const password = useRef(null);
+
+  const validateFormData = () => {
+    const message = validateData(userName.current.value, email.current.value, password.current.value);
+    setErrorMessage(message);
+
+
+   
+  }
+  
   const handleToggle = () => {
     setIsSignInForm(!isSignInForm);
   };
@@ -15,13 +37,16 @@ const Login = () => {
          bg-cover absolute bg-center h-screen w-screen"
       ></div>
 
-      <form className="w-full sm:w-3/4 md:w-1/2 lg:w-1/3 xl:w-1/4 max-h-[90vh] overflow-y-auto p-8 sm:p-12 bg-black bg-opacity-80 my-20 mx-auto absolute right-0 left-0 rounded-md">
+      <form onSubmit={ (e)=> {
+        e.preventDefault()
+      }} className="w-full sm:w-3/4 md:w-1/2 lg:w-1/3 xl:w-1/4 max-h-[90vh] overflow-y-auto p-8 sm:p-12 bg-black bg-opacity-80 my-20 mx-auto absolute right-0 left-0 rounded-md">
         <label className="text-white block mx-2 my-4 text-lg sm:text-xl">
           {isSignInForm ? "Sign In" : "Sign Up"}
         </label>
         {!isSignInForm && (
             <input
               type="text"
+              ref={userName}
               placeholder="Full Name"
               className="text-white px-3 py-2 m-2 bg-gray-700 border border-black rounded-md w-full"
             />
@@ -30,17 +55,22 @@ const Login = () => {
         )}
         <input
           type="email"
+          ref={email}
           placeholder="Email Address"
           className="text-white px-3 py-2 m-2 bg-gray-700 border border-black rounded-md w-full"
         />
         <input
           type="password"
+          ref={password}
           placeholder="Password"
           className="text-white px-3 py-2 bg-gray-700 border m-2 border-black rounded-md w-full"
         />
-        <button className="border border-black rounded-md px-4 py-2 mx-2 my-4 bg-red-700 text-white w-full">
+        <button onClick={validateFormData} className="border border-black rounded-md px-4 py-2 mx-2 my-4 bg-red-700 text-white w-full">
           {isSignInForm ? "Sign In" : "Sign Up"}
         </button>
+
+        <p className="text-lg text-bold text-red-500 flex justify-start mb-1 pl-4">{errorMessage}
+        </p>
 
         <p className="px-2">
           {isSignInForm ? (
