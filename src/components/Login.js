@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import Header from "./Header";
 import { Link } from "react-router-dom";
 import { validateData } from '../utils/validate'
+import { createUser, loginUser } from '../utils/authenticate'
 /**
  * Represents the login component.
  * @component
@@ -20,12 +21,33 @@ const Login = () => {
 
   const validateFormData = () => {
     const message = validateData(userName.current.value, email.current.value, password.current.value);
+    console.log("message -- > ", message);
     setErrorMessage(message);
 
+    signupUser(email.current.value, password.current.value)
+    signInUser(email.current.value, password.current.value)
 
-   
+    if(message !== null){
+      if(!isSignInForm){
+        signupUser(email.current.value, password.current.value)
+      }      
+      else if(isSignInForm)
+      {
+        signInUser(email.current.value, password.current.value)
+      }
+    }
   }
-  
+
+  const signupUser = (email, password) => {
+    console.log("sign up email and password -->", email, password)
+    createUser(email ,password);
+  }
+
+  const signInUser = (email, password) => {
+    console.log("sign in email and password -->", email, password)
+    loginUser(email ,password);
+  }
+
   const handleToggle = () => {
     setIsSignInForm(!isSignInForm);
   };
@@ -38,7 +60,7 @@ const Login = () => {
       ></div>
 
       <form onSubmit={ (e)=> {
-        e.preventDefault()
+        e.preventDefault();
       }} className="w-full sm:w-3/4 md:w-1/2 lg:w-1/3 xl:w-1/4 max-h-[90vh] overflow-y-auto p-8 sm:p-12 bg-black bg-opacity-80 my-20 mx-auto absolute right-0 left-0 rounded-md">
         <label className="text-white block mx-2 my-4 text-lg sm:text-xl">
           {isSignInForm ? "Sign In" : "Sign Up"}
@@ -67,6 +89,7 @@ const Login = () => {
         />
         <button onClick={validateFormData} className="border border-black rounded-md px-4 py-2 mx-2 my-4 bg-red-700 text-white w-full">
           {isSignInForm ? "Sign In" : "Sign Up"}
+          {/* {isSignInForm */}
         </button>
 
         <p className="text-lg text-bold text-red-500 flex justify-start mb-1 pl-4">{errorMessage}

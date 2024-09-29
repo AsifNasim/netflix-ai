@@ -4,9 +4,14 @@
     - Header
     - Routing
     - Login Form
+    - Deploying app to Netlify using github action
     - Sign up Form
     - Form Validation
     - UseRef Hook
+    - Firebase setup
+    - Deploying app to firebase as well
+    - Create sign up user in firebase
+    
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/cdd4f9dd-4718-4403-8466-4e4d28ea2fc8/deploy-status)](https://app.netlify.com/sites/zeeflix-ai/deploys)
 
