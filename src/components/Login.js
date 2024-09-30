@@ -21,13 +21,13 @@ const Login = () => {
 
   const validateFormData = () => {
     const message = validateData(userName.current.value, email.current.value, password.current.value);
-    console.log("message -- > ", message);
     setErrorMessage(message);
 
-    signupUser(email.current.value, password.current.value)
-    signInUser(email.current.value, password.current.value)
+    if(message) return;
 
-    if(message !== null){
+    
+
+    if(message === null){
       if(!isSignInForm){
         signupUser(email.current.value, password.current.value)
       }      
