@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "zeeflix-genai",
     "public": "build",
     "ignore": [
       "firebase.json",
