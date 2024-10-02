@@ -11,6 +11,7 @@
     - Firebase setup
     - Deploying app to firebase as well
     - Create sign up user in firebase
+    - Created ReduxStore for the app with userSlice
     
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/cdd4f9dd-4718-4403-8466-4e4d28ea2fc8/deploy-status)](https://app.netlify.com/sites/zeeflix-ai/deploys)

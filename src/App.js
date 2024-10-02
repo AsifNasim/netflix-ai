@@ -1,7 +1,9 @@
+import { Provider } from "react-redux";
 import Browse from "./components/Browse";
 import Login from "./components/Login";
 
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import appStore from "./utils/appStore";
 
 
 
@@ -18,7 +20,9 @@ function App() {
     }
   ])
   return (
-    <RouterProvider router={appRouter}/>
+    <Provider store={appStore}>
+      <RouterProvider router={appRouter}/>
+    </Provider>
   );
 }
 
