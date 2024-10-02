@@ -1,16 +1,26 @@
 import { 
     createUserWithEmailAndPassword,
-    signInWithEmailAndPassword} from "firebase/auth";
+    signInWithEmailAndPassword,
+    updateProfile} from "firebase/auth";
 import { auth } from "./firebase";
 
-export const createUser = (email, password) =>{
 
+export const createUser = (name, email, password) =>{
     createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
         // Signed up 
         console.log("User credentials -->", userCredential)
+        
         const user = userCredential.user;
         console.log("Username -->", user);
+        updateProfile(user, {
+            displayName: name
+        }).then(()=>{
+            console.log("User updated -->", user);
+
+        }).catch((error)=>{
+            console.log("Error updating user -->", error)
+        })
         
     })
     .catch((error) => {

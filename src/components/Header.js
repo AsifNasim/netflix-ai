@@ -2,10 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { auth } from '../utils/firebase'
 import { signOut } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 const Header = () => {
   const navigate = useNavigate();
   const [isSignedIn, setIsSignedIn] = useState(false);
+
+  const user = useSelector( store => store.user);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(user => {
@@ -31,8 +34,13 @@ const Header = () => {
         alt='netflix-logo'
         />
         {isSignedIn && (
+          <div className='flex items-center'>
+            <div>
+            <p className='text-white  mt-6 pr-2'> Welcome, {user?.displayName}</p>
+          </div>
           <div>
             <button onClick={handleSignOut} className='text-white mt-5 rounded-lg h-10 w-20 bg-red-600'>Sign out</button>
+          </div>
           </div>
         )}
     </div>
