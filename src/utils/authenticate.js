@@ -3,9 +3,10 @@ import {
     signInWithEmailAndPassword,
     updateProfile} from "firebase/auth";
 import { auth } from "./firebase";
+import { addUser } from "./userSlice";
 
+export const createUser = (name, email, password, dispatch) => {
 
-export const createUser = (name, email, password) =>{
     createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
         // Signed up 
@@ -15,10 +16,16 @@ export const createUser = (name, email, password) =>{
         console.log("Username -->", user);
         updateProfile(user, {
             displayName: name
-        }).then(()=>{
+        }).then(() => {
             console.log("User updated -->", user);
-
-        }).catch((error)=>{
+            // Dispatch action to update user slice
+            const { uid, email, displayName} = auth.currentUser;
+            dispatch(addUser({
+                uid: uid,
+                email: email,
+                displayName: displayName,
+            }));
+        }).catch((error) => {
             console.log("Error updating user -->", error)
         })
         
@@ -28,7 +35,6 @@ export const createUser = (name, email, password) =>{
         console.log("error code --> ", errorCode);
         const errorMessage = error.message;
         console.log("error Message --> ", errorMessage)
-       
     });
 }
 

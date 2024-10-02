@@ -55,7 +55,7 @@ const Login = () => {
 
     if(message === null){
       if(!isSignInForm){
-        signupUser(userName.current.value, email.current.value, password.current.value)
+        signupUser(userName.current.value, email.current.value, password.current.value, dispatch)
       }      
       else if(isSignInForm)
       {
@@ -64,9 +64,9 @@ const Login = () => {
     }
   }
 
-  const signupUser = (name, email, password) => {
+  const signupUser = (name, email, password, dispatch) => {
     console.log("sign up email and password -->", email, password)
-    createUser(name, email ,password);
+    createUser(name, email ,password, dispatch);
   }
 
   const signInUser = (email, password) => {
