@@ -8,6 +8,9 @@ import { auth } from '../utils/firebase';
 import { useDispatch } from 'react-redux';
 import { addUser, removeUser } from '../utils/userSlice';
 import { useNavigate } from 'react-router-dom';
+import { BACKGROUND_IMAGE } from '../utils/constants';
+
+const backgroundImage = `url('${BACKGROUND_IMAGE}')`;
 /**
  * Represents the login component.
  * @component
@@ -37,7 +40,7 @@ const Login = () => {
         navigate('/')
       }
     }));
-
+    // unsubscribe will be called when the component is unmounted
     return () => unsubscribe();
   }, [dispatch, navigate])
 
@@ -80,10 +83,9 @@ const Login = () => {
   return (
     <div>
       <Header />
-      <div
-        className="bg-[url('https://assets.nflxext.com/ffe/siteui/vlv3/bfc0fc46-24f6-4d70-85b3-7799315c01dd/web/IN-en-20240923-TRIFECTA-perspective_74e21c19-980e-45ef-bd6c-78c1a6ce9381_medium.jpg')] 
-         bg-cover absolute bg-center h-screen w-screen"
-      ></div>
+      <div>
+         <img className="bg-cover absolute bg-center h-screen w-screen" src={BACKGROUND_IMAGE} alt="background" />
+      </div>
 
       <form onSubmit={ (e)=> {
         e.preventDefault();

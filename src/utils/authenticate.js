@@ -44,7 +44,7 @@ export const loginUser = (email, password) => {
     .then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
-        console.log("Login User object-->", user)
+        console.log("User -->", user);
         // ...
     })
     .catch((error) => {
