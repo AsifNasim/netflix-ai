@@ -12,6 +12,14 @@
     - Deploying app to firebase as well
     - Create sign up user in firebase
     - Created ReduxStore for the app with userSlice
+    - Implemented Signin user API
+    - Implemented Sign out
+    - Unsubscribed to the onAuthStateChanged call
+    - Update Profile
+    - BugFix : If it is not signed in then redirect to login page and vice versa
+    - Added Hard coded values to the constants file
+    - Register TMDB API & create an app & get access to the access token and key
+    - Get data from tmdb now playing movie list API call
     
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/cdd4f9dd-4718-4403-8466-4e4d28ea2fc8/deploy-status)](https://app.netlify.com/sites/zeeflix-ai/deploys)

@@ -10,7 +10,6 @@ import { addUser, removeUser } from '../utils/userSlice';
 import { useNavigate } from 'react-router-dom';
 import { BACKGROUND_IMAGE } from '../utils/constants';
 
-const backgroundImage = `url('${BACKGROUND_IMAGE}')`;
 /**
  * Represents the login component.
  * @component
