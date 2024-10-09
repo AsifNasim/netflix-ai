@@ -1,13 +1,9 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import Header from "./Header";
 import { Link } from "react-router-dom";
 import { validateData } from '../utils/validate';
 import { createUser, loginUser } from '../utils/authenticate';
-import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from '../utils/firebase';
 import { useDispatch } from 'react-redux';
-import { addUser, removeUser } from '../utils/userSlice';
-import { useNavigate } from 'react-router-dom';
 import { BACKGROUND_IMAGE } from '../utils/constants';
 
 /**
@@ -22,26 +18,6 @@ const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage , setErrorMessage] = useState(null);
   const dispatch = useDispatch();
-  // this hook is used to navigate to different pages
-  const navigate = useNavigate();
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user => {
-      if(user) {
-        const { uid, email, displayName} = user;
-        dispatch(addUser({
-          uid: uid,
-          email: email,
-          displayName: displayName
-        }))
-        navigate('/browse')
-      } else{
-        dispatch(removeUser())
-        navigate('/')
-      }
-    }));
-    // unsubscribe will be called when the component is unmounted
-    return () => unsubscribe();
-  }, [dispatch, navigate])
 
   const userName = useRef("");
   const email = useRef(null);
