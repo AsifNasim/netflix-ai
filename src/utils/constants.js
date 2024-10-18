@@ -11,4 +11,6 @@ export const BACKGROUND_IMAGE =
       Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyNDdlOTU3ZWJlYmYzMjRmODQ2MDM2MGFmOWFmY2Y1MyIsIm5iZiI6MTcyODAyNDAyNi40NDEyMTgsInN1YiI6IjY2ZmY4OWNjOTI1ZmRmOTI1YjdjYjkyMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.hX06CqgqJI_J-LJOfMnQKj8H6XQbujAz2KjquQTEMGw'
     }
   };
+
+  export const getMoviePlayNowURL = `https://api.themoviedb.org/3/movie/now_playing`;
   

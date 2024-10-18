@@ -17,7 +17,7 @@ const Header = () => {
     const unsubscribe = auth.onAuthStateChanged(user => {
       setIsSignedIn(!!user);
     });
-
+//  when the component is unmounted, the unsubscribe function will be called
     return () => unsubscribe();
   }, []);
 
