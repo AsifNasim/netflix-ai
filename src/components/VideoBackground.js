@@ -36,7 +36,7 @@ const VideoBackground = ({ id, original_title }) => {
       <iframe
         width="100%"
         height="100%"
-        src={`https://www.youtube.com/embed/${videoKey}?autoplay=0&mute=1`}
+        src={`https://www.youtube.com/embed/${videoKey}?autoplay=1&mute=1`}
         title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         referrerPolicy="strict-origin-when-cross-origin"
