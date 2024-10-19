@@ -9,6 +9,10 @@ const moviesSlice = createSlice({
         addNowPlayingMovies : (state, action) => {
             state.nowPlayingMovies =  action.payload;
         }
+        // ,
+        // addVideoTrailer : (state, action ) => {
+        //     state.trailerVideo = action.payload;
+        // }
     }
 })
 

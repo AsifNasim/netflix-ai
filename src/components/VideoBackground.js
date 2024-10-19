@@ -1,22 +1,49 @@
-import React from 'react'
-import { getMovieImageHostURL } from '../utils/constants';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect, useState } from "react";
+import { API_OPTIONS, getMovieVideosTrailer } from "../utils/constants";
 
-const VideoBackground = () => {
-    // console.log(movieData?.movieData)
+const VideoBackground = ({ id, original_title }) => {
+    console.log("Movie Id -->", id)
+    const [videoKey, setVideoKey] = useState(0);
 
-    // if(!original_title) return;
-
-    // console.log("Original Title -->", original_title?.original_title);
-    // console.log("Original Overview -->", overview)
-
-    // const { backdrop_path } = movieData?.movieData;
-    // console.log("backdrop path", backdrop_path)
+    const getVideoTrailer = async () => {
+        const data = await fetch(
+        getMovieVideosTrailer + id + "/videos?language=en-US",
+        API_OPTIONS
+    );
+    const result = await data.json();
+    const videoData = result?.results;
+    const filterData = videoData.filter((video) => video.type === "Trailer");
+    const trailerData = filterData.length ? filterData[0] : videoData[0];
+    console.log("Trailer Data -->", trailerData)
+    // if(trailerData){
+    //     const { key } = trailerData;
+    //     console.log("video key -->", key)
+    //     console.log("original Title", original_title)
+    //     setVideoKey(key)
+    // }
+    // console.log("Trailer Data --> ", trailerData);
     
-  return (
-    <div>
-        <img src= {getMovieImageHostURL  } alt='movie'  />
-    </div>
-  )
-}
+    
+  };
 
-export default VideoBackground
+  useEffect(() => {
+    getVideoTrailer();
+  }, [id]);
+
+  return (
+    <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', zIndex: -999 }}>
+      <iframe
+        width="100%"
+        height="100%"
+        src={`https://www.youtube.com/embed/${videoKey}?autoplay=0&mute=1`}
+        title="YouTube video player"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerPolicy="strict-origin-when-cross-origin"
+        allowFullScreen
+      ></iframe>
+    </div>
+  );
+};
+
+export default VideoBackground;

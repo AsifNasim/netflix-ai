@@ -13,6 +13,7 @@ export const BACKGROUND_IMAGE =
   };
 
   export const getMoviePlayNowURL = `https://api.themoviedb.org/3/movie/now_playing`;
+  export const getMovieVideosTrailer = `https://api.themoviedb.org/3/movie/`;
 
   export const getMovieImageHostURL = `https://media.themoviedb.org/t/p/w220_and_h330_face`;
   
