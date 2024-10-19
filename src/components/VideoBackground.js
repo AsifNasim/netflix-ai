@@ -16,13 +16,13 @@ const VideoBackground = ({ id, original_title }) => {
     const filterData = videoData.filter((video) => video.type === "Trailer");
     const trailerData = filterData.length ? filterData[0] : videoData[0];
     console.log("Trailer Data -->", trailerData)
-    // if(trailerData){
-    //     const { key } = trailerData;
-    //     console.log("video key -->", key)
-    //     console.log("original Title", original_title)
-    //     setVideoKey(key)
-    // }
-    // console.log("Trailer Data --> ", trailerData);
+    if(trailerData){
+        const { key } = trailerData;
+        console.log("video key -->", key)
+        console.log("original Title", original_title)
+        setVideoKey(key)
+    }
+    console.log("Trailer Data --> ", trailerData);
     
     
   };
