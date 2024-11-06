@@ -4,8 +4,8 @@ const VideoTitle = ({ original_title, overview, backdrop_path }) => {
     console.log("original title, overview -->", original_title, overview);
 
   return (
-    <div className='pt-36 px-12 '>
-            <h1 className='font-extrabold text-6xl text-white'>{original_title}</h1>
+    <div className='pt-36 px-12 bg-gradient-to-br from-black to-transparent h-[94vh]'>
+            <h1 className='font-extrabold text-6xl text-white '>{original_title}</h1>
             <h3 className='py-6 text-xl w-1/3 text-white'>{overview}</h3>
             
             <div>
