@@ -14,7 +14,7 @@ const usePopularMovies = () => {
     const getPopularMovieList = async () =>{
         const data = await fetch(getPopularMovieURL,  API_OPTIONS);
         const result = await data.json();
-        console.log("get popular Movies Reponse -->", result?.results);
+        
         dispatch(addPopularMovies(result?.results));
   
   

@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { API_OPTIONS, getMovieVideosTrailer } from '../utils/constants';
 
 const useNowPlayingTrailer = (id) => {
-    console.log("Movie Id -->", id)
+    
     const [videoKey, setVideoKey] = useState(0);
 
     const getVideoTrailer = async () => {
@@ -16,13 +16,13 @@ const useNowPlayingTrailer = (id) => {
             const videoData = result?.results;
             const filterData = videoData.filter((video) => video.type === "Trailer");
             const trailerData = filterData.length ? filterData[0] : videoData[0];
-            console.log("Trailer Data -->", trailerData)
+            
             if (trailerData) {
                 const { key } = trailerData;
-                console.log("video key -->", key)
+               
                 setVideoKey(key)
             }
-            console.log("Trailer Data --> ", trailerData);
+            
         } catch (error) {
             console.error("Error fetching trailer data:", error);
         }

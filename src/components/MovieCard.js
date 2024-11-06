@@ -5,8 +5,6 @@ import MovieList from './MovieList';
 const MovieCard = () => {
     const movie = useSelector( store =>  store.movies);
 
-    console.log("Movie Card -->", movie?.nowPlayingMovies)
-
   return (
     <div>
         <MovieList title={"Now Playing"} movieData={movie?.nowPlayingMovies} />

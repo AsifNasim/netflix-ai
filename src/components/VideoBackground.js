@@ -5,7 +5,7 @@ import useNowPlayingTrailer from "../hooks/useNowPlayingTrailer";
 
 const VideoBackground = ({ id, original_title }) => {
     const videoKey = useNowPlayingTrailer(id);
-    console.log("Video Key-->", videoKey);
+    
         
 
   return (

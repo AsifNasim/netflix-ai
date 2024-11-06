@@ -1,7 +1,7 @@
 import React from 'react'
 const VideoTitle = ({ original_title, overview, backdrop_path }) => {
 
-    console.log("original title, overview -->", original_title, overview);
+   
 
   return (
     <div className='pt-36 px-12 bg-gradient-to-br from-black to-transparent h-[94vh]'>

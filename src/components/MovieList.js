@@ -3,7 +3,7 @@ import { getMovieImageHostURL } from '../utils/constants';
 
 const MovieList = ({title, movieData}) => {
 
-    console.log("Movie data inside movie list -->", movieData);
+    
 
     if(!movieData) return;
   return (

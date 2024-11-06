@@ -14,7 +14,7 @@ const useUpcomingMovies = () => {
     const getUpcomingMovies = async () =>{
         const data = await fetch(getUpcomingMovieURL,  API_OPTIONS);
         const result = await data.json();
-        console.log("get Upcoming Movies Reponse -->", result?.results);
+        
         dispatch(addUpcomingMovies(result?.results));
   
   

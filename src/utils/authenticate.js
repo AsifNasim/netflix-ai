@@ -10,14 +10,14 @@ export const createUser = (name, email, password, dispatch) => {
     createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
         // Signed up 
-        console.log("User credentials -->", userCredential)
+        
         
         const user = userCredential.user;
-        console.log("Username -->", user);
+        
         updateProfile(user, {
             displayName: name
         }).then(() => {
-            console.log("User updated -->", user);
+            
             // Dispatch action to update user slice
             const { uid, email, displayName} = auth.currentUser;
             dispatch(addUser({

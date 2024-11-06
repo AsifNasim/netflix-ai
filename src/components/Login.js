@@ -43,12 +43,10 @@ const Login = () => {
   }
 
   const signupUser = (name, email, password, dispatch) => {
-    console.log("sign up email and password -->", email, password)
     createUser(name, email ,password, dispatch);
   }
 
   const signInUser = (email, password) => {
-    console.log("sign in email and password -->", email, password)
     loginUser(email ,password);
   }
 
