@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { NETFLIX_LOGO } from '../utils/constants'
 import { addUser, removeUser } from '../utils/userSlice'
+import { toggleGptSearchView} from '../utils/gptSlice'
 
 const Header = () => {
   const navigate = useNavigate();
@@ -12,6 +13,7 @@ const Header = () => {
   const [isSignedIn, setIsSignedIn] = useState(false);
 
   const user = useSelector( store => store.user);
+  // const gpt =  useSelector(store => store.gpt);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(user => {
@@ -50,13 +52,24 @@ const Header = () => {
     });
   }
 
+  const handleGptSearch = () => {
+
+    dispatch(toggleGptSearchView());
+    
+  }
+
   return (
-    <div className='flex justify-between absolute w-screen px-10 py-2 bg-gradient-to-b from-black z-20'> 
+    <div className='flex justify-between fixed w-screen px-10 py-2 bg-gradient-to-b from-black z-20'> 
         <img className='w-44' src={NETFLIX_LOGO}
         alt='netflix-logo'
         />
         {isSignedIn && (
           <div className='flex items-center'>
+            <button className='p-2 mt-5 mx-2 text-white bg-purple-800 rounded-md'
+            onClick={handleGptSearch}
+            >
+              Search GPT
+            </button>
             <div>
             <p className='text-white  mt-6 pr-2'> Welcome, {user?.displayName}</p>
           </div>
