@@ -19,4 +19,11 @@ export const BACKGROUND_IMAGE =
   export const getMovieVideosTrailer = `https://api.themoviedb.org/3/movie/`;
 
   export const getMovieImageHostURL = `https://media.themoviedb.org/t/p/w220_and_h330_face`;
+
+  export const SUPPORTED_LANGUAGE = [ 
+    {identifier: 'en', name:'English'},
+    {identifier: 'hi', name:'Hindi'},
+    {identifier: 'es', name:'Spanish'},
+    {identifier: 'ar', name:'Arabic'}
+  ]
   

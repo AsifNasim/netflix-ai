@@ -3,9 +3,10 @@ import { auth } from '../utils/firebase'
 import { onAuthStateChanged, signOut } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { NETFLIX_LOGO } from '../utils/constants'
+import { NETFLIX_LOGO, SUPPORTED_LANGUAGE } from '../utils/constants'
 import { addUser, removeUser } from '../utils/userSlice'
 import { toggleGptSearchView} from '../utils/gptSlice'
+
 
 const Header = () => {
   const navigate = useNavigate();
@@ -65,6 +66,14 @@ const Header = () => {
         />
         {isSignedIn && (
           <div className='flex items-center'>
+            {/* Multi Language Support */}
+            <select className='p-2 mt-5 rounded bg-gray-900 text-white'>
+              {SUPPORTED_LANGUAGE.map( (lang) => (
+                <option key={lang?.identifier} value={lang?.name}>{lang?.name}</option>
+              )
+                
+              )}
+            </select>
             <button className='p-2 mt-5 mx-2 text-white bg-purple-800 rounded-md'
             onClick={handleGptSearch}
             >
