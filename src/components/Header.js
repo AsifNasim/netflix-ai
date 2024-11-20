@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { NETFLIX_LOGO, SUPPORTED_LANGUAGE } from '../utils/constants'
 import { addUser, removeUser } from '../utils/userSlice'
 import { toggleGptSearchView} from '../utils/gptSlice'
+import { changeLanguage } from '../utils/configSlice'
 
 
 const Header = () => {
@@ -59,6 +60,10 @@ const Header = () => {
     
   }
 
+  const handleLanguageChange = (e) => {
+    dispatch(changeLanguage(e?.target?.value));
+  }
+
   return (
     <div className='flex justify-between fixed w-screen px-10 py-2 bg-gradient-to-b from-black z-20'> 
         <img className='w-44' src={NETFLIX_LOGO}
@@ -67,9 +72,10 @@ const Header = () => {
         {isSignedIn && (
           <div className='flex items-center'>
             {/* Multi Language Support */}
-            <select className='p-2 mt-5 rounded bg-gray-900 text-white'>
+            <select className='p-2 mr-2 mt-5 rounded bg-gray-900 text-white' onChange={handleLanguageChange}>
               {SUPPORTED_LANGUAGE.map( (lang) => (
                 <option key={lang?.identifier} value={lang?.name}>{lang?.name}</option>
+                
               )
                 
               )}

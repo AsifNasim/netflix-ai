@@ -1,5 +1,5 @@
 const lang = {
-    en :{
+    english :{
         search: "Search",
         gptSearchBarPlaceholder: "What would you like to watch today?"
     },
@@ -9,7 +9,7 @@ const lang = {
     },
     spanish: {
         search: "Buscar",
-        gptSearchBarPlaceholder: "¿Qué te gustaría ver hoy??"
+        gptSearchBarPlaceholder: "¿Qué te gustaría ver hoy?"
     },
     arabic: {
         search: "يبحث",
