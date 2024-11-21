@@ -16,6 +16,7 @@ const Header = () => {
 
   const user = useSelector( store => store.user);
   // const gpt =  useSelector(store => store.gpt);
+  const showGptSearch = useSelector( store => store?.gpt?.showGptSearch); 
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(user => {
@@ -62,6 +63,7 @@ const Header = () => {
 
   const handleLanguageChange = (e) => {
     dispatch(changeLanguage(e?.target?.value));
+    e.preventDefault();
   }
 
   return (
@@ -72,18 +74,18 @@ const Header = () => {
         {isSignedIn && (
           <div className='flex items-center'>
             {/* Multi Language Support */}
-            <select className='p-2 mr-2 mt-5 rounded bg-gray-900 text-white' onChange={handleLanguageChange}>
-              {SUPPORTED_LANGUAGE.map( (lang) => (
-                <option key={lang?.identifier} value={lang?.name}>{lang?.name}</option>
-                
-              )
-                
-              )}
-            </select>
+        {showGptSearch && <select className='p-2 mr-2 mt-5 rounded bg-gray-900 text-white' onChange={handleLanguageChange}>
+          {SUPPORTED_LANGUAGE.map( (lang) => (
+            <option key={lang?.identifier} value={lang?.name}>{lang?.name}</option>
+            
+          )
+            
+          )}
+        </select>}
             <button className='p-2 mt-5 mx-2 text-white bg-purple-800 rounded-md'
             onClick={handleGptSearch}
             >
-              Search GPT
+              {showGptSearch ? 'Home': 'Search GPT'}
             </button>
             <div>
             <p className='text-white  mt-6 pr-2'> Welcome, {user?.displayName}</p>
