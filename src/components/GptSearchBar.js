@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useRef } from 'react'
 import lang from '../utils/langConstants'
 import { useDispatch, useSelector } from 'react-redux'
 import client from '../utils/anthropicAi';
@@ -11,9 +11,9 @@ const GptSearchBar = () => {
   let movieData;
   const dispatch =  useDispatch();
   const searchText = useRef(null);
-  const [movieDataSingle, setMovieDataSingle] = useState(null);
+  // const [movieDataSingle, setMovieDataSingle] = useState(null);
 
-  const movieArray = useSelector(store => store.gpt.showGptResults);
+  // const movieArray = useSelector(store => store.gpt.showGptResults);
 
   // const useFetchData = () => {
   //   const data =  useGptSearchedMovie(movieArray[0]);
