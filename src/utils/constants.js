@@ -27,6 +27,3 @@ export const BACKGROUND_IMAGE =
     {identifier: 'spanish', name:'spanish'},
     {identifier: 'arabic', name:'arabic'}
   ]
-
-  export const openaiKey = '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';
-  export const anthropicKey = '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';
