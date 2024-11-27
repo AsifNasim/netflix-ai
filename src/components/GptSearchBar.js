@@ -11,22 +11,6 @@ const GptSearchBar = () => {
   let movieData;
   const dispatch = useDispatch();
   const searchText = useRef(null);
-  // const [movieDataSingle, setMovieDataSingle] = useState(null);
-
-  // const movieArray = useSelector(store => store.gpt.showGptResults);
-
-  // const useFetchData = () => {
-  //   const data =  useGptSearchedMovie(movieArray[0]);
-  //   setMovieDataSingle(data);
-  //   console.log("movieDataSingle -->", movieDataSingle);
-  // };
-
-  // useEffect(() => {
-  //   if (movieArray && movieArray.length > 0) {
-  //     // useFetchData();
-  //   }
-  // }, [movieArray]);
-
   const searchMovieTMDB = async (movie) => {
     const data = await fetch(getMovieByName + movie+"&include_adult=false&language=en-US&page=1",
       API_OPTIONS
@@ -34,7 +18,7 @@ const GptSearchBar = () => {
 
     const json = await data.json();
 
-    // console.log("Search results from TMDB Movie API -->", json.results);
+  
 
     return json.results;
 
@@ -75,13 +59,9 @@ const GptSearchBar = () => {
 
       const tmdbResults = await Promise.all(tmdbResultsPromise);
       dispatch(showGptResults({movieNames: moviesArray, movieResults: tmdbResults}));
-
-      console.log("Resolved Promise of TMDB movies -->",tmdbResults);
-      console.log("Movie Array -->", moviesArray);
-      // dispatch(showGptResults(moviesArray));
     }
 
-    // console.log('Gpt Results -->', gptResults);
+
   };
 
   const langkey = useSelector((store) => store?.config?.lang);

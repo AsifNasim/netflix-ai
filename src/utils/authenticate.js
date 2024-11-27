@@ -32,7 +32,7 @@ export const createUser = (name, email, password, dispatch) => {
     })
     .catch((error) => {
         const errorCode = error.code;
-        console.log("error code --> ", errorCode);
+
         const errorMessage = error.message;
         console.log("error Message --> ", errorMessage)
     });
