@@ -27,5 +27,3 @@ export const BACKGROUND_IMAGE =
     {identifier: 'spanish', name:'spanish'},
     {identifier: 'arabic', name:'arabic'}
   ]
-
-  
