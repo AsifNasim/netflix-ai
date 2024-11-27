@@ -1,8 +1,7 @@
 import Anthropic from '@anthropic-ai/sdk';
-import { anthropicKey } from './constants';
 
 const client = new Anthropic({
-  apiKey: anthropicKey, 
+  apiKey: process.env.REACT_APP_CLAUDE_ACCESS_TOKEN, 
   dangerouslyAllowBrowser: true 
 });
 
